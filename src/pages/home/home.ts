@@ -15,10 +15,6 @@ import { CartPage } from '../../pages/cart/cart';
 })
 export class HomePage implements OnInit {
 
-  favouritesPage = FavouritesPage;
-  cartPage = CartPage;
-  homePage = HomePage
-
   products: any;
   product: Product = new Product();
 
