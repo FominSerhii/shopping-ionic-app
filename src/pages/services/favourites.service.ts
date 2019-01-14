@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database'
 
 import { Product } from '../home/product';
@@ -7,7 +8,6 @@ export class FavouritesService {
   favouriteProducts: AngularFireList<Product>;
   private favourite: Product[] = [];
 
-  favouritesCount = 0;
 
   constructor() { }
 
@@ -15,11 +15,9 @@ export class FavouritesService {
     let a: Product[];
     a = JSON.parse(localStorage.getItem('fav_item')) || [];
     a.push(product);
-    alert('You really want to add in favourites')
     setTimeout(() => {
       localStorage.setItem('fav_item', JSON.stringify(a));
-      this.calculateCartCount();
-    }, 500);
+    }, 100);
   }
 
   getLocalFavouriteProduct() : Product[] {
@@ -42,11 +40,6 @@ export class FavouritesService {
       }
     }
     localStorage.setItem('fav_item', JSON.stringify(products));
-    this.calculateCartCount();
-  }
-
-  calculateCartCount() {
-    this.favouritesCount = this.getLocalFavouriteProduct().length;
   }
 
 }

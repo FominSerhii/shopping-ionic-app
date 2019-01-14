@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 
 import { AuthService } from '../services/auth';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -29,6 +30,7 @@ export class SignupPage {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

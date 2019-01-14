@@ -9,34 +9,34 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-item *ngFor="let product of favouriteProducts" class="col-md-4 item-product">
 
-      <ion-thumbnail item-start (click)="showDetails(product)">
-        <ion-img
-          [src]="product.imagePath"
-          alt="{{ product.imagePath }}"
-          class="img-responsive">
-        </ion-img>
-      </ion-thumbnail>
+<ion-content class="bg-style">
 
-      <ion-row>
-        <h2 (click)="showDetails(product)">{{ product.name }}</h2>
-      </ion-row>
-      <ion-row>
-        <p (click)="showDetails(product)">{{ product.price }} UAH</p>
-      </ion-row>
-      <ion-row>
-        <p (click)="showDetails(product)">{{ product.description }}</p>
-      </ion-row>
+  <div *ngFor="let product of favouriteProducts">
+
+    <ion-card>
+      <ion-card-header>
+        <img src={{product.imagePath}}/>
+      </ion-card-header>
+
+
+      <ion-card-content>
+        <h2> <b>{{ product.name }} </b> </h2>
+        <p> {{ product.price }} </p>
+        <p> {{ product.description }} </p>
+      </ion-card-content>
 
       <button ion-button clear item-end (click)="onDeleteFavourite(product)">
-        <ion-icon style=" font-size: 25px;" name="trash"></ion-icon>
+        <ion-icon style="font-size: 25px;" name="trash"></ion-icon>
+      </button>
+      <button ion-button clear item-end (click)="onDeleteFavourite(product)">
+        <ion-icon style="font-size: 25px;" name="cart"></ion-icon>
       </button>
 
-    </ion-item>
-</ion-content>
+    </ion-card>
 
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+  </div>
+
+</ion-content>
 
 

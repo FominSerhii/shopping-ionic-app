@@ -21,6 +21,7 @@ export class ProductDetailsPage {
   ionViewDidLoad() {
     this.product = this.navParams.data;
   }
+
   goBack() {
       this.navCtrl.pop();
   }
