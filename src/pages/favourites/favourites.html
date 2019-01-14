@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      Favourites
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item *ngFor="let product of favouriteProducts" class="col-md-4 item-product">
+
+      <ion-thumbnail item-start (click)="showDetails(product)">
+        <ion-img
+          [src]="product.imagePath"
+          alt="{{ product.imagePath }}"
+          class="img-responsive">
+        </ion-img>
+      </ion-thumbnail>
+
+      <ion-row>
+        <h2 (click)="showDetails(product)">{{ product.name }}</h2>
+      </ion-row>
+      <ion-row>
+        <p (click)="showDetails(product)">{{ product.price }} UAH</p>
+      </ion-row>
+      <ion-row>
+        <p (click)="showDetails(product)">{{ product.description }}</p>
+      </ion-row>
+
+      <button ion-button clear item-end (click)="onDeleteFavourite(product)">
+        <ion-icon style=" font-size: 25px;" name="trash"></ion-icon>
+      </button>
+
+    </ion-item>
+</ion-content>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+

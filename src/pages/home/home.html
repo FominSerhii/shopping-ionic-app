@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      Products
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item *ngFor="let product of products" class="col-md-4 item-product">
+
+      <ion-thumbnail item-start (click)="showDetails(product)">
+        <ion-img
+          [src]="product.imagePath"
+          alt="{{ product.imagePath }}"
+          class="img-responsive">
+        </ion-img>
+      </ion-thumbnail>
+
+      <ion-row>
+        <h2 (click)="showDetails(product)">{{ product.name }}</h2>
+      </ion-row>
+      <ion-row>
+        <p (click)="showDetails(product)">{{ product.price }} UAH</p>
+      </ion-row>
+      <ion-row>
+        <p (click)="showDetails(product)">{{ product.description }}</p>
+      </ion-row>
+
+      <button ion-button clear item-end (click)="addToCart(product)">
+        <ion-icon style=" font-size: 25px;" name="cart"></ion-icon>
+      </button>
+      <button ion-button clear item-end (click)="addToFavourites(product)">
+        <ion-icon style=" font-size: 25px;" name="heart"></ion-icon>
+      </button>
+
+    </ion-item>
+</ion-content>
+
+<ion-tabs>
+      <ion-tab [root]="homePage" tabTitle="Home" tabIcon="md-home"></ion-tab>
+      <ion-tab [root]="favouritesPage" tabTitle="Favourites" tabIcon="md-heart"></ion-tab>
+      <ion-tab [root]="cartPage" tabTitle="Cart" tabIcon="md-cart"></ion-tab>
+</ion-tabs>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+
