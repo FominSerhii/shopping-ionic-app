@@ -10,7 +10,20 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item *ngFor="let product of products" class="col-md-4 item-product">
+
+  <ion-searchbar
+    [showCancelButton]="shouldShowCancel"
+    [(ngModel)]="term"
+    required>
+  </ion-searchbar>
+
+    <button class="sort" ion-button clear item-end (click)="sort()">Sort by Price
+      <ion-icon style=" font-size: 25px;" name="arrow-round-up"></ion-icon>
+      <ion-icon style=" font-size: 25px;" name="arrow-round-down"></ion-icon>
+    </button>
+
+
+    <ion-item *ngFor="let product of products | filter:term " class="col-md-4 item-product">
 
       <ion-thumbnail item-start (click)="showDetails(product)">
         <ion-img
@@ -30,11 +43,11 @@
         <p (click)="showDetails(product)">{{ product.description }}</p>
       </ion-row>
 
-      <button ion-button clear item-end (click)="addToCart(product)">
-        <ion-icon style=" font-size: 25px;" name="cart"></ion-icon>
-      </button>
       <button ion-button clear item-end (click)="addToFavourites(product)">
         <ion-icon style=" font-size: 25px;" name="heart"></ion-icon>
+      </button>
+      <button ion-button clear item-end (click)="addToCart(product)">
+        <ion-icon style=" font-size: 25px;" name="cart"></ion-icon>
       </button>
 
     </ion-item>

@@ -2,6 +2,7 @@ import { AngularFireModule } from '@angular/fire';
 import { IonicStorageModule } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +21,8 @@ import { FavouritesPage } from '../pages/favourites/favourites';
 import { ProductsService } from '../pages/services/products.service';
 import { FavouritesService } from '../pages/services/favourites.service';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { CartService } from '../pages/services/cart.service';
+import { SortPipe } from '../pages/home/sort.pipe';
 
 import { config } from './app.firebase.config';
 
@@ -32,7 +35,8 @@ import { config } from './app.firebase.config';
     SigninPage,
     SignupPage,
     TabsPage,
-    ProductDetailsPage
+    ProductDetailsPage,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { config } from './app.firebase.config';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(config),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    Ng2SearchPipeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +64,8 @@ import { config } from './app.firebase.config';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     ProductsService,
-    FavouritesService
+    FavouritesService,
+    CartService
   ]
 })
 export class AppModule {}

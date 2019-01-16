@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Product } from '../home/product';
 import { FavouritesService } from '../services/favourites.service';
+import { CartService } from '../services/cart.service';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,8 @@ export class FavouritesPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private favouritesService: FavouritesService) {
+              private favouritesService: FavouritesService,
+              public cartService: CartService) {
   }
 
   ngOnInit() {
@@ -34,6 +36,10 @@ export class FavouritesPage implements OnInit {
 
   getFavouriteProduct() {
     this.favouriteProducts = this.favouritesService.getLocalFavouriteProduct();
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCartProduct(product);
   }
 
 }

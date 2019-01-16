@@ -1,25 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Product } from '../home/product';
+import { CartService } from '../services/cart.service';
 
 @IonicPage()
 @Component({
   selector: 'page-cart',
   templateUrl: 'cart.html',
 })
-export class CartPage {
+export class CartPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cartProducts: Product[];
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private cartService: CartService) {
+  }
+
+   ngOnInit() {
+    this.getCartProduct();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
+  }
+
+  onDeleteCart(product: Product) {
+    this.cartService.removeLocalCart(product);
+
+    this.getCartProduct();
+  }
+
+  getCartProduct() {
+    this.cartProducts = this.cartService.getLocalCartProduct();
   }
 
 }

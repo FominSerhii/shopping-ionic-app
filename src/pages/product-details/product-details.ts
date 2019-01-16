@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {AuthService} from '../services/auth';
+import { AuthService } from '../services/auth';
+import { Product } from '../home/product';
+import { CartService } from '../services/cart.service';
+import { FavouritesService } from '../services/favourites.service';
 
 @IonicPage()
 @Component({
@@ -14,7 +17,9 @@ export class ProductDetailsPage {
   product : any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public authService: AuthService
+              public authService: AuthService,
+              public cartService: CartService,
+              public favouritesService: FavouritesService
              ) {
   }
 
@@ -24,6 +29,14 @@ export class ProductDetailsPage {
 
   goBack() {
       this.navCtrl.pop();
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCartProduct(product);
+  }
+
+  addToFavourites(product: Product) {
+    this.favouritesService.addToFavouriteProduct(product);
   }
 
 }

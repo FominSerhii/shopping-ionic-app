@@ -7,15 +7,18 @@ export class FavouritesService {
 
   favouriteProducts: AngularFireList<Product>;
   private favourite: Product[] = [];
+  favouritesCount = 0;
 
-
-  constructor() { }
+  constructor() {
+     this.calculatefavouritesCount()
+   }
 
   addToFavouriteProduct(product: Product): void {
     let a: Product[];
     a = JSON.parse(localStorage.getItem('fav_item')) || [];
     a.push(product);
     localStorage.setItem('fav_item', JSON.stringify(a));
+    this.calculatefavouritesCount();
   }
 
   getLocalFavouriteProduct() : Product[] {
@@ -38,6 +41,11 @@ export class FavouritesService {
       }
     }
     localStorage.setItem('fav_item', JSON.stringify(products));
+    this.calculatefavouritesCount();
+  }
+
+  calculatefavouritesCount() {
+    this.favouritesCount = this.getLocalFavouriteProduct().length;
   }
 
 }
