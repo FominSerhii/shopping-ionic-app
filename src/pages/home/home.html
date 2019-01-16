@@ -23,7 +23,7 @@
     </button>
 
 
-    <ion-item *ngFor="let product of products | filter:term " class="col-md-4 item-product">
+    <ion-item *ngFor="let product of products | filter:term | sort: {property: column, order: order}" class="col-md-4 item-product">
 
       <ion-thumbnail item-start (click)="showDetails(product)">
         <ion-img

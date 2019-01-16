@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 
 import { AuthService } from '../services/auth';
-import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()

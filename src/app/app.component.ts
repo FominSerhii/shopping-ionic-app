@@ -6,7 +6,7 @@ import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { HomePage } from '../pages/home/home';
 
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../pages/services/auth';
