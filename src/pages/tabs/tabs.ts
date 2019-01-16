@@ -5,20 +5,18 @@ import { CartPage } from '../../pages/cart/cart';
 import { HomePage } from '../../pages/home/home';
 
 @Component({
-  selector: 'page-tabs',
+  selector: `page-tabs`,
   template: `
-    <ion-tabs>
-      <ion-tab [root]="homePage" tabTitle="Home" tabIcon="md-home"></ion-tab>
-      <ion-tab [root]="favouritesPage" tabTitle="Favourites" tabIcon="md-heart"></ion-tab>
-      <ion-tab [root]="cartPage" tabTitle="Cart" tabIcon="md-cart"></ion-tab>
-    </ion-tabs>
-  `
+   <ion-tabs>
+    <ion-tab [root]="homePage" tabTitle="Home" tabIcon="home"></ion-tab>
+    <ion-tab [root]="favouritesPage" tabTitle="Favourites" tabIcon="heart">></ion-tab>
+    <ion-tab [root]="cartPage" tabTitle="Cart" tabIcon="cart">></ion-tab>
+  </ion-tabs>`
 })
 
-export class TabsPage {
 
+export class TabsPage {
   favouritesPage = FavouritesPage;
   cartPage = CartPage;
-  homePage = HomePage
-
+  homePage = HomePage;
 }

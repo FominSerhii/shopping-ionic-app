@@ -15,9 +15,7 @@ export class FavouritesService {
     let a: Product[];
     a = JSON.parse(localStorage.getItem('fav_item')) || [];
     a.push(product);
-    setTimeout(() => {
-      localStorage.setItem('fav_item', JSON.stringify(a));
-    }, 100);
+    localStorage.setItem('fav_item', JSON.stringify(a));
   }
 
   getLocalFavouriteProduct() : Product[] {

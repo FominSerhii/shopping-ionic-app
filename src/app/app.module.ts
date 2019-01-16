@@ -1,26 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { IonicStorageModule } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MyApp } from './app.component';
+import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
-import { FavouritesPage } from '../pages/favourites/favourites';
 import { CartPage } from '../pages/cart/cart';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
-import { AdminPage } from '../pages/admin/admin';
-import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../pages/services/auth';
+import { FavouritesPage } from '../pages/favourites/favourites';
 import { ProductsService } from '../pages/services/products.service';
-import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { FavouritesService } from '../pages/services/favourites.service';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
 
 import { config } from './app.firebase.config';
 
@@ -32,7 +31,6 @@ import { config } from './app.firebase.config';
     CartPage,
     SigninPage,
     SignupPage,
-    AdminPage,
     TabsPage,
     ProductDetailsPage
   ],
@@ -52,7 +50,6 @@ import { config } from './app.firebase.config';
     CartPage,
     SigninPage,
     SignupPage,
-    AdminPage,
     TabsPage,
     ProductDetailsPage
   ],

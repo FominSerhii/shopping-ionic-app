@@ -4,6 +4,7 @@ import { NgForm, FormGroup, FormControl } from '@angular/forms';
 
 import { AuthService } from '../services/auth';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -30,7 +31,7 @@ export class SigninPage {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(TabsPage);
     console.log('signin');
   }
 

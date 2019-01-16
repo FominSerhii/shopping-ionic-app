@@ -2,13 +2,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
 
   token: string;
   user: Observable<firebase.User>;
+  userDetails: firebase.User = null;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
@@ -16,9 +17,8 @@ export class AuthService {
 
   signupUser(email: string, password: string) {
     this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password).then((value) => {
-      console.log('Success!', value),
-      alert('Great');
-    }).catch(error => alert('Oops, something wrong, please check'));
+      console.log('Success!', value)
+    }).catch(error => console.log('error'));
   }
 
   signinUser(email: string, password: string) {
@@ -32,13 +32,23 @@ export class AuthService {
         }
         )
       .catch(
-        error => alert('No such user, please sign up, and try again!'),
+        error => console.log('error'),
       );
   }
 
   logout() {
     this.firebaseAuth.auth.signOut();
     this.token = null;
+  }
+
+  isLoggedIn(): boolean {
+    if (this.userDetails !== null) {
+      return true;
+    }
+  }
+
+  isAuthenticated() {
+    return this.token != null;
   }
 
 

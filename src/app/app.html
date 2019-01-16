@@ -8,19 +8,19 @@
 </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item icon-left (click)="onLoad(signinPage)">
+      <button *ngIf="!authService.isAuthenticated()" ion-item icon-left (click)="onLoad(signinPage)">
         <ion-icon name="log-in"></ion-icon>
       Signin</button>
-      <button ion-item icon-left (click)="onLoad(signupPage)">
+      <button *ngIf="!authService.isAuthenticated()" ion-item icon-left (click)="onLoad(signupPage)">
         <ion-icon name="people"></ion-icon>
       Signup</button>
-      <button ion-item icon-left *ngIf="authService.user | async" (click)="onLoad(adminPage)">
-        <ion-icon name="eye"></ion-icon>
-      Admin</button>
+      <button *ngIf="authService.user | async" ion-item icon-left>
+        <ion-icon name="contact"></ion-icon>
+      {{ (authService.user | async)?.email }}</button>
       <button ion-item icon-left *ngIf="authService.user | async" (click)="onLogout()">
         <ion-icon name="log-out"></ion-icon>
       Logout</button>
-      <button ion-item icon-left (click)="onLoad(homePage)">
+      <button ion-item icon-left (click)="onLoad(rootPage)">
         <ion-icon name="close-circle"></ion-icon>
       Close</button>
     </ion-list>

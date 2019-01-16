@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
-import { AdminPage } from '../pages/admin/admin';
 import { HomePage } from '../pages/home/home';
 
 import * as firebase from 'firebase';
@@ -26,15 +25,15 @@ const config = {
 })
 export class MyApp {
 
+  rootPage: any = TabsPage;
+
   email: string;
   password: string;
 
-  rootPage = TabsPage;
-
   signinPage = SigninPage;
   signupPage = SignupPage;
-  adminPage = AdminPage;
   homePage = HomePage;
+
   @ViewChild ('nav') nav: NavController;
 
   constructor(platform: Platform,
