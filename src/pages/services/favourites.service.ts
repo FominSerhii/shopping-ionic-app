@@ -1,12 +1,10 @@
-import { Storage } from '@ionic/storage';
-import { AngularFireList, AngularFireDatabase } from 'angularfire2/database'
+import { AngularFireList } from 'angularfire2/database'
 
 import { Product } from '../home/product';
 
 export class FavouritesService {
 
   favouriteProducts: AngularFireList<Product>;
-  private favourite: Product[] = [];
   favouritesCount = 0;
 
   constructor() {

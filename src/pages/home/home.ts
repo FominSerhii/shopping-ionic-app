@@ -7,7 +7,6 @@ import { ProductsService } from '../services/products.service';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { FavouritesService   } from '../services/favourites.service';
 import { CartService } from '../services/cart.service';
-import { SortPipe } from './sort.pipe';
 
 @Component({
   selector: 'page-home',

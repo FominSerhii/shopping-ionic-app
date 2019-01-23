@@ -14,7 +14,7 @@
 
   <ion-item *ngFor="let product of favouriteProducts" class="col-md-4 item-product">
 
-    <ion-thumbnail item-start (click)="showDetails(product)">
+    <ion-thumbnail item-start>
         <ion-img
           [src]="product.imagePath"
           alt="{{ product.imagePath }}"
@@ -23,13 +23,13 @@
       </ion-thumbnail>
 
       <ion-row>
-        <h2 (click)="showDetails(product)">{{ product.name }}</h2>
+        <h2>{{ product.name }}</h2>
       </ion-row>
       <ion-row>
-        <p (click)="showDetails(product)">{{ product.price }} UAH</p>
+        <p>{{ product.price }} UAH</p>
       </ion-row>
       <ion-row>
-        <p (click)="showDetails(product)">{{ product.description }}</p>
+        <p>{{ product.description }}</p>
       </ion-row>
 
       <button ion-button clear item-end (click)="onDeleteFavourite(product)">
@@ -43,4 +43,4 @@
     </ion-item>
 </ion-content>
 
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+<!-- <ion-nav id="nav" #content [root]="rootPage"></ion-nav> -->

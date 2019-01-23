@@ -6,12 +6,10 @@ import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { HomePage } from '../pages/home/home';
 
-import * as firebase from 'firebase/app';
-
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../pages/services/auth';
 
-const config = {
+export const config = {
   apiKey: "AIzaSyB8KNH6FWANayHfhjf80nGVFfOd0simInE",
   authDomain: "sopping-web-app.firebaseapp.com",
   databaseURL: "https://sopping-web-app.firebaseio.com",
@@ -43,8 +41,6 @@ export class MyApp {
               public authService: AuthService) {
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
